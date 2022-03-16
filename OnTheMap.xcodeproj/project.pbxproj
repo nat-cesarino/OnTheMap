@@ -13,10 +13,10 @@
 		2E1F038527DF9C9E004EB534 /* ErrorResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E1F038427DF9C9E004EB534 /* ErrorResponse.swift */; };
 		2E1F038727DFA1F4004EB534 /* LoginRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E1F038627DFA1F4004EB534 /* LoginRequest.swift */; };
 		2E3E29AB27DFB34600206DBB /* SessionResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E3E29AA27DFB34600206DBB /* SessionResponse.swift */; };
-		2E3E29AD27DFB38600206DBB /* UserDataResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E3E29AC27DFB38600206DBB /* UserDataResponse.swift */; };
 		2E3E29AF27E02DF500206DBB /* TableTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E3E29AE27E02DF500206DBB /* TableTabViewController.swift */; };
 		2E3E29B127E2389300206DBB /* StudentLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E3E29B027E2389300206DBB /* StudentLocation.swift */; };
-		2E3E29B327E238EA00206DBB /* AllStudentsLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E3E29B227E238EA00206DBB /* AllStudentsLocation.swift */; };
+		2E3E29B527E2744600206DBB /* AllStudentsLocationResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E3E29B427E2744600206DBB /* AllStudentsLocationResponse.swift */; };
+		2E3E29B727E2769A00206DBB /* StudentLocationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E3E29B627E2769A00206DBB /* StudentLocationModel.swift */; };
 		2E5E0CEA27D6DE1F003F433B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2E5E0CE927D6DE1F003F433B /* Assets.xcassets */; };
 		2E81A42927D6D3F400A30833 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E81A42827D6D3F400A30833 /* AppDelegate.swift */; };
 		2E81A42B27D6D3F400A30833 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E81A42A27D6D3F400A30833 /* SceneDelegate.swift */; };
@@ -52,10 +52,10 @@
 		2E1F038427DF9C9E004EB534 /* ErrorResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorResponse.swift; sourceTree = "<group>"; };
 		2E1F038627DFA1F4004EB534 /* LoginRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRequest.swift; sourceTree = "<group>"; };
 		2E3E29AA27DFB34600206DBB /* SessionResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionResponse.swift; sourceTree = "<group>"; };
-		2E3E29AC27DFB38600206DBB /* UserDataResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataResponse.swift; sourceTree = "<group>"; };
 		2E3E29AE27E02DF500206DBB /* TableTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableTabViewController.swift; sourceTree = "<group>"; };
 		2E3E29B027E2389300206DBB /* StudentLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentLocation.swift; sourceTree = "<group>"; };
-		2E3E29B227E238EA00206DBB /* AllStudentsLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllStudentsLocation.swift; sourceTree = "<group>"; };
+		2E3E29B427E2744600206DBB /* AllStudentsLocationResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllStudentsLocationResponse.swift; sourceTree = "<group>"; };
+		2E3E29B627E2769A00206DBB /* StudentLocationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentLocationModel.swift; sourceTree = "<group>"; };
 		2E5E0CE927D6DE1F003F433B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = "New Group/Assets.xcassets"; sourceTree = "<group>"; };
 		2E81A42527D6D3F400A30833 /* OnTheMap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OnTheMap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2E81A42827D6D3F400A30833 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -172,6 +172,8 @@
 		2E81A45C27D6D4FA00A30833 /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				2E3E29B027E2389300206DBB /* StudentLocation.swift */,
+				2E3E29B627E2769A00206DBB /* StudentLocationModel.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -181,7 +183,7 @@
 			children = (
 				2E1F038427DF9C9E004EB534 /* ErrorResponse.swift */,
 				2E3E29AA27DFB34600206DBB /* SessionResponse.swift */,
-				2E3E29AC27DFB38600206DBB /* UserDataResponse.swift */,
+				2E3E29B427E2744600206DBB /* AllStudentsLocationResponse.swift */,
 			);
 			path = Response;
 			sourceTree = "<group>";
@@ -190,8 +192,6 @@
 			isa = PBXGroup;
 			children = (
 				2E1F038627DFA1F4004EB534 /* LoginRequest.swift */,
-				2E3E29B027E2389300206DBB /* StudentLocation.swift */,
-				2E3E29B227E238EA00206DBB /* AllStudentsLocation.swift */,
 			);
 			path = Request;
 			sourceTree = "<group>";
@@ -335,14 +335,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2E3E29B327E238EA00206DBB /* AllStudentsLocation.swift in Sources */,
 				2E1F038127DF8A51004EB534 /* LoginTextField.swift in Sources */,
 				2E81A46127D6D56200A30833 /* UdacityClient.swift in Sources */,
 				2E1F037F27DF8A3E004EB534 /* LoginButton.swift in Sources */,
 				2E3E29B127E2389300206DBB /* StudentLocation.swift in Sources */,
 				2E1F038327DF9AF5004EB534 /* RequestHelpers.swift in Sources */,
-				2E3E29AD27DFB38600206DBB /* UserDataResponse.swift in Sources */,
 				2E81A46527D6D8F800A30833 /* MapTabViewController.swift in Sources */,
+				2E3E29B727E2769A00206DBB /* StudentLocationModel.swift in Sources */,
 				2E1F038527DF9C9E004EB534 /* ErrorResponse.swift in Sources */,
 				2E81A42D27D6D3F400A30833 /* LoginViewController.swift in Sources */,
 				2E81A46727D6D94300A30833 /* InformationPostingView.swift in Sources */,
@@ -351,6 +350,7 @@
 				2E81A42927D6D3F400A30833 /* AppDelegate.swift in Sources */,
 				2E81A42B27D6D3F400A30833 /* SceneDelegate.swift in Sources */,
 				2E1F038727DFA1F4004EB534 /* LoginRequest.swift in Sources */,
+				2E3E29B527E2744600206DBB /* AllStudentsLocationResponse.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

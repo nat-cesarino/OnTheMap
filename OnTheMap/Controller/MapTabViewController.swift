@@ -23,9 +23,7 @@ class MapTabViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        addAnnotation()
         reloadInputViews()
-        print(mapView!)
     }
     
     override func viewDidLoad() {
@@ -36,23 +34,7 @@ class MapTabViewController: UIViewController {
     
     // MARK: Methods
     
-    func addAnnotation() {
-        UdacityClient.getStudentLocation { data, error in
-            self.studentLocation = data
-            
-            for dictionary in self.studentLocation {
-                
-                let annotation = MKPointAnnotation()
-                annotation.title = "\(dictionary.firstName)" + "" + "\(dictionary.lastName)"
-                annotation.subtitle = dictionary.mediaURL
-                annotation.coordinate = CLLocationCoordinate2DMake(dictionary.latitude, dictionary.longitude)
-                
-                self.annotations.append(annotation)
-            }
-            self.mapView.addAnnotations(self.annotations)
-            self.mapView.showAnnotations(self.mapView.annotations, animated: true)
-        }
-    }
+    
     
 }
 

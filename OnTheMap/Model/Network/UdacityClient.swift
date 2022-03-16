@@ -60,10 +60,10 @@ class UdacityClient {
     }
     
     class func getStudentLocation(completion: @escaping ([StudentLocation], Error?) -> Void) {
-        RequestHelpers.taskForGetRequest(url: Endpoints.getStudentLocation.url, response: AllStudentsLocation.self) { response, error in
+        RequestHelpers.taskForGetRequest(url: Endpoints.getStudentLocation.url, responseT: AllStudentsLocationResponse.self) { response, error in
             if let response =  response {
                 DispatchQueue.main.async {
-                    completion(response.listOfLocations, nil)
+                    completion(response.results, nil)
                 }
             } else {
                 DispatchQueue.main.async {

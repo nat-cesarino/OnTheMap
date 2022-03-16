@@ -15,42 +15,61 @@ class TableTabViewController: UITableViewController {
     @IBOutlet var tableTabView: UITableView!
     @IBOutlet weak var refreshButton: UIBarButtonItem!
     @IBOutlet weak var addPinButton: UIBarButtonItem!
+    
     var cellReuse = "reuseCell"
-    var studentLocation = [StudentLocation]()
+    var studentsLocationList: [StudentLocation] { return
+        StudentLocationModel.studentsLocationList
+    }
     
     // MARK: Life Cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableTabView.delegate = self
-        tableTabView.dataSource = self
-        UdacityClient.getStudentLocation(completion: { ( StudentData, error) in
-            self.studentLocation = StudentData
-            self.tableTabView.reloadData()
-        })
     }
+    
+    func getStudentsLocationList() {
+        UdacityClient.getStudentLocation(completion: handleStudentsLocationListResponse(studentsLocationList:error:))
+    }
+    
+    func handleStudentsLocationListResponse(studentsLocationList: [StudentLocation], error: Error?) {
+        if let error = error {
+            print(error)
+            // Show failure func
+        } else {
+            StudentLocationModel.updateStudentsLocationList(updatedList: studentsLocationList)
+            tableView.reloadData()
+        }
+    }
+    
+    // MARK: TableView Data Source
     
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let student = studentLocation[indexPath.row]
-        let url = student.mediaURL
-        
-        UIApplication.shared.open(URL(string: url)!, completionHandler: nil)
-    }
-    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print(studentLocation.count)
-        return studentLocation.count
+        return studentsLocationList.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellReuse, for: indexPath)
-        let student = studentLocation[indexPath.row]
-        cell.textLabel?.text = student.firstName + student.lastName
+        let studentLocation = studentsLocationList[indexPath.row]
+        cell.textLabel?.text = "\(studentLocation.firstName) \(studentLocation.lastName)"
+        cell.detailTextLabel?.text = studentLocation.mediaURL
         cell.imageView?.image = UIImage(named: "icon_pin")
+        
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let studentLocation = studentsLocationList[indexPath.row]
+        let url = studentLocation.mediaURL
+        
+        UIApplication.shared.open(URL(string: url)!, completionHandler: nil)
+    }
+    
+    // lock the navigation bar while scrolling
+    override func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        navigationController?.setNavigationBarHidden(false, animated: false)
     }
 }

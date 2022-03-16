@@ -9,7 +9,7 @@ import Foundation
 
 class RequestHelpers {
     
-    class func taskForGetRequest<ResponseType: Decodable>(url:URL, response: ResponseType.Type, completion: @escaping (ResponseType?, Error?) -> Void) -> URLSessionTask {
+    class func taskForGetRequest<ResponseType: Decodable>(url:URL, responseT: ResponseType.Type, completion: @escaping (ResponseType?, Error?) -> Void) -> URLSessionTask {
         
         let task = URLSession.shared.dataTask(with: url) { data, response, error in
             guard let data = data else {
@@ -20,7 +20,7 @@ class RequestHelpers {
             }
             let decoder = JSONDecoder()
             do {
-                let responseObject = try decoder.decode(ResponseType.self, from: data)
+                let responseObject = try decoder.decode(responseT.self, from: data)
                 DispatchQueue.main.async {
                     completion(responseObject, nil)
                 }
