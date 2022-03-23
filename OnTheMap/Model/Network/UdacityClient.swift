@@ -13,8 +13,8 @@ class UdacityClient {
         static var sessionId = ""
         static var key = ""
         static var objectId = ""
-        static var firstName = ""
-        static var lastName = ""
+        static var firstName = "Nathalie"
+        static var lastName = "Cesarino"
     }
         
     enum Endpoints {

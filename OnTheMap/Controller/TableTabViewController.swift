@@ -12,10 +12,6 @@ class TableTabViewController: UITableViewController {
     
     // MARK: Properties
     
-    @IBOutlet var tableTabView: UITableView!
-    @IBOutlet weak var refreshButton: UIBarButtonItem!
-    @IBOutlet weak var addPinButton: UIBarButtonItem!
-    
     var cellReuse = "reuseCell"
     var studentsLocationList: [StudentLocation] { return
         StudentLocationModel.studentsLocationList
@@ -25,9 +21,19 @@ class TableTabViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setNavigationActions()
+        getStudentsLocationList()
     }
     
-    func getStudentsLocationList() {
+    // MARK: Methods
+    
+    func setNavigationActions() {
+        let refreshButton = UIBarButtonItem(barButtonSystemItem: .refresh, target: self, action: #selector(getStudentsLocationList))
+        let addPinButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addNewLocation))
+        self.navigationItem.rightBarButtonItems = [addPinButton, refreshButton]
+    }
+    
+    @objc func getStudentsLocationList() {
         UdacityClient.getStudentLocation(completion: handleStudentsLocationListResponse(studentsLocationList:error:))
     }
     
@@ -39,6 +45,11 @@ class TableTabViewController: UITableViewController {
             StudentLocationModel.updateStudentsLocationList(updatedList: studentsLocationList)
             tableView.reloadData()
         }
+    }
+    
+    @objc func addNewLocation() {
+        let postLocationVC = (storyboard?.instantiateViewController(identifier: "PostLocation"))!
+        present(postLocationVC, animated: true, completion: nil)
     }
     
     // MARK: TableView Data Source
@@ -55,7 +66,7 @@ class TableTabViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellReuse, for: indexPath)
         let studentLocation = studentsLocationList[indexPath.row]
         cell.textLabel?.text = "\(studentLocation.firstName) \(studentLocation.lastName)"
-        cell.detailTextLabel?.text = studentLocation.mediaURL
+        cell.detailTextLabel?.text = "\(studentLocation.mediaURL)"
         cell.imageView?.image = UIImage(named: "icon_pin")
         
         return cell

@@ -14,33 +14,52 @@ class MapTabViewController: UIViewController {
     // MARK: Properties
     
     @IBOutlet weak var mapView: MKMapView!
-    @IBOutlet weak var addPinButton: UIBarButtonItem!
-    @IBOutlet weak var refreshButton: UIBarButtonItem!
-    var studentLocation: [StudentLocation] = []
-    var annotations = [MKPointAnnotation]()
+    
+    var studentsLocationList: [StudentLocation] { return
+        StudentLocationModel.studentsLocationList
+    }
     
     // MARK: Life Cycle
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(true)
-        reloadInputViews()
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
+        setNavigationActions()
+        getStudentsLocationList()
         mapView.delegate = self
-        
     }
     
     // MARK: Methods
     
+    func setNavigationActions() {
+        let refreshButton = UIBarButtonItem(barButtonSystemItem: .refresh, target: self, action: #selector(getStudentsLocationList))
+        let addPinButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addNewLocation))
+        self.navigationItem.rightBarButtonItems = [addPinButton, refreshButton]
+    }
     
+    @objc func getStudentsLocationList() {
+        UdacityClient.getStudentLocation(completion: handleStudentsLocationListResponse(studentsLocationList:error:))
+    }
+    
+    func handleStudentsLocationListResponse(studentsLocationList: [StudentLocation], error: Error?) {
+        if let error = error {
+            print(error)
+            // Show failure func
+        } else {
+            StudentLocationModel.updateStudentsLocationList(updatedList: studentsLocationList)
+            mapView.addAnnotations(StudentLocationModel.studentsLocationAnnotations)
+        }
+    }
+    
+    @objc func addNewLocation() {
+        let postLocationVC = (storyboard?.instantiateViewController(identifier: "PostLocation"))!
+        present(postLocationVC, animated: true, completion: nil)
+    }
     
 }
 
 extension MapTabViewController: MKMapViewDelegate {
     
-    // Here I create a view with a "right callout accessory view". Similar to cellForRowAtIndexPath method in TableViewDataSource.
+    // Placing pins
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         
         let reuseId = "pin"
@@ -58,6 +77,7 @@ extension MapTabViewController: MKMapViewDelegate {
         return pinView
     }
     
+    // Tapping on a pin redirects to url
     func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
         
         if control == view.rightCalloutAccessoryView {
