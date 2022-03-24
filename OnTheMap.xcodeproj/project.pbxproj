@@ -18,6 +18,7 @@
 		2E3E29B527E2744600206DBB /* AllStudentsLocationResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E3E29B427E2744600206DBB /* AllStudentsLocationResponse.swift */; };
 		2E3E29B727E2769A00206DBB /* StudentLocationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E3E29B627E2769A00206DBB /* StudentLocationModel.swift */; };
 		2E3E29B927E284BD00206DBB /* PostLocationMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E3E29B827E284BD00206DBB /* PostLocationMapViewController.swift */; };
+		2E3E29BB27EC87C700206DBB /* PostLocationResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E3E29BA27EC87C700206DBB /* PostLocationResponse.swift */; };
 		2E5E0CEA27D6DE1F003F433B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2E5E0CE927D6DE1F003F433B /* Assets.xcassets */; };
 		2E81A42927D6D3F400A30833 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E81A42827D6D3F400A30833 /* AppDelegate.swift */; };
 		2E81A42B27D6D3F400A30833 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E81A42A27D6D3F400A30833 /* SceneDelegate.swift */; };
@@ -58,6 +59,7 @@
 		2E3E29B427E2744600206DBB /* AllStudentsLocationResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllStudentsLocationResponse.swift; sourceTree = "<group>"; };
 		2E3E29B627E2769A00206DBB /* StudentLocationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentLocationModel.swift; sourceTree = "<group>"; };
 		2E3E29B827E284BD00206DBB /* PostLocationMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostLocationMapViewController.swift; sourceTree = "<group>"; };
+		2E3E29BA27EC87C700206DBB /* PostLocationResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostLocationResponse.swift; sourceTree = "<group>"; };
 		2E5E0CE927D6DE1F003F433B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = "New Group/Assets.xcassets"; sourceTree = "<group>"; };
 		2E81A42527D6D3F400A30833 /* OnTheMap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OnTheMap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2E81A42827D6D3F400A30833 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -187,6 +189,7 @@
 				2E1F038427DF9C9E004EB534 /* ErrorResponse.swift */,
 				2E3E29AA27DFB34600206DBB /* SessionResponse.swift */,
 				2E3E29B427E2744600206DBB /* AllStudentsLocationResponse.swift */,
+				2E3E29BA27EC87C700206DBB /* PostLocationResponse.swift */,
 			);
 			path = Response;
 			sourceTree = "<group>";
@@ -349,6 +352,7 @@
 				2E1F038527DF9C9E004EB534 /* ErrorResponse.swift in Sources */,
 				2E81A42D27D6D3F400A30833 /* LoginViewController.swift in Sources */,
 				2E81A46727D6D94300A30833 /* PostLocationViewController.swift in Sources */,
+				2E3E29BB27EC87C700206DBB /* PostLocationResponse.swift in Sources */,
 				2E3E29AF27E02DF500206DBB /* TableTabViewController.swift in Sources */,
 				2E3E29AB27DFB34600206DBB /* SessionResponse.swift in Sources */,
 				2E81A42927D6D3F400A30833 /* AppDelegate.swift in Sources */,

@@ -6,7 +6,17 @@
 //
 
 import Foundation
+import UIKit
+import MapKit
 
-class PostLocationMapViewController {
+class PostLocationMapViewController: UIViewController {
     
+    // MARK: Properties:
+    
+    @IBOutlet weak var mapView: MKMapView!
+    
+    // MARK: Methods:
+    
+    @IBAction func finishPostingLocationButton(_ sender: Any) {
+    }
 }

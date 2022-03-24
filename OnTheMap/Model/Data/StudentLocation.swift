@@ -19,3 +19,13 @@ struct StudentLocation: Codable {
     var updatedAt: String
     var mediaURL: String
 }
+
+struct StudentLocationBody: Codable {
+    let uniqueKey: String
+    let firstName: String
+    let lastName: String
+    let latitude: Float
+    let longitude: Float
+    let mapString: String
+    let mediaURL: String
+}

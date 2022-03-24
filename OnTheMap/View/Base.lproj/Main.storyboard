@@ -257,6 +257,7 @@
                                     <preferredSymbolConfiguration key="preferredSymbolConfiguration" weight="bold"/>
                                 </state>
                                 <connections>
+                                    <action selector="FindLocation:" destination="z4O-kt-oVO" eventType="touchUpInside" id="SCI-SO-ZBU"/>
                                     <action selector="loginButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="xqj-Wu-mFB"/>
                                 </connections>
                             </button>
@@ -296,6 +297,8 @@
                     </view>
                     <navigationItem key="navigationItem" title="Add Location" id="nmS-tr-2Mj"/>
                     <connections>
+                        <outlet property="locationTextField" destination="qfi-Tr-Nza" id="mKT-F4-89g"/>
+                        <outlet property="mediaURLTextField" destination="IQE-Qq-7UT" id="60a-jg-Lsm"/>
                         <segue destination="Jhk-0B-104" kind="presentation" id="NkW-cD-fVU"/>
                     </connections>
                 </viewController>
@@ -303,41 +306,52 @@
             </objects>
             <point key="canvasLocation" x="4633" y="90"/>
         </scene>
-        <!--Post Location Map View Controller-->
+        <!--Location Map-->
         <scene sceneID="XEl-My-txV">
             <objects>
-                <viewController id="Jhk-0B-104" customClass="PostLocationMapViewController" customModule="OnTheMap" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SeeInMap" title="Location Map" id="Jhk-0B-104" customClass="PostLocationMapViewController" customModule="OnTheMap" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="PBt-17-H1s">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="g68-lb-xw8">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="44" id="APG-o0-f4X"/>
-                                </constraints>
-                                <items>
-                                    <navigationItem title="Add Location" id="mpt-Sk-bdv">
-                                        <barButtonItem key="leftBarButtonItem" title="Item" image="icon_back-arrow" id="0Ab-hi-2IA"/>
-                                    </navigationItem>
-                                </items>
-                            </navigationBar>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="xq3-XJ-L2c">
-                                <rect key="frame" x="0.0" y="54" width="375" height="593"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
                             </mapView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sY1-oS-XYP" customClass="LoginButton" customModule="OnTheMap" customModuleProvider="target">
+                                <rect key="frame" x="60" y="547" width="255" height="60"/>
+                                <color key="backgroundColor" red="0.049756847319999999" green="0.80569547409999998" blue="0.96587938070000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="7NH-Jq-Hfj"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="MqB-H2-9pq"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Finish">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" weight="bold"/>
+                                </state>
+                                <connections>
+                                    <action selector="FindLocation:" destination="z4O-kt-oVO" eventType="touchUpInside" id="G8Z-cG-0mk"/>
+                                    <action selector="finishPostingLocationButton:" destination="Jhk-0B-104" eventType="touchUpInside" id="O5V-sx-YIX"/>
+                                    <action selector="loginButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Qex-zN-2pE"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="emi-ih-LUi"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="emi-ih-LUi" firstAttribute="trailing" secondItem="sY1-oS-XYP" secondAttribute="trailing" constant="60" id="33g-ya-08U"/>
                             <constraint firstItem="xq3-XJ-L2c" firstAttribute="leading" secondItem="emi-ih-LUi" secondAttribute="leading" id="7fg-ew-XLI"/>
-                            <constraint firstItem="g68-lb-xw8" firstAttribute="top" secondItem="emi-ih-LUi" secondAttribute="top" id="B1m-Oo-m8b"/>
                             <constraint firstItem="xq3-XJ-L2c" firstAttribute="trailing" secondItem="emi-ih-LUi" secondAttribute="trailing" id="JQE-4c-0mP"/>
-                            <constraint firstItem="xq3-XJ-L2c" firstAttribute="top" secondItem="g68-lb-xw8" secondAttribute="bottom" constant="10" id="Zp4-BW-6St"/>
-                            <constraint firstItem="g68-lb-xw8" firstAttribute="leading" secondItem="xq3-XJ-L2c" secondAttribute="leading" id="bDH-Vt-6wh"/>
+                            <constraint firstItem="emi-ih-LUi" firstAttribute="bottom" secondItem="sY1-oS-XYP" secondAttribute="bottom" constant="40" id="Vtx-ht-dD2"/>
+                            <constraint firstItem="xq3-XJ-L2c" firstAttribute="top" secondItem="emi-ih-LUi" secondAttribute="top" id="dc5-UV-k6i"/>
                             <constraint firstItem="xq3-XJ-L2c" firstAttribute="bottom" secondItem="emi-ih-LUi" secondAttribute="bottom" id="qgU-LO-61y"/>
-                            <constraint firstItem="g68-lb-xw8" firstAttribute="trailing" secondItem="xq3-XJ-L2c" secondAttribute="trailing" id="rd3-gp-Vss"/>
+                            <constraint firstItem="sY1-oS-XYP" firstAttribute="leading" secondItem="emi-ih-LUi" secondAttribute="leading" constant="60" id="sVj-Mk-cob"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="mapView" destination="xq3-XJ-L2c" id="TEe-52-i4O"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RLd-Nl-K5Q" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -345,7 +359,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="icon_back-arrow" width="24" height="24"/>
         <image name="icon_listview-deselected" width="75" height="50"/>
         <image name="icon_mapview-deselected" width="75" height="50"/>
         <image name="icon_world" width="52" height="67"/>

@@ -14,7 +14,15 @@ class PostLocationViewController: UIViewController {
     
     // MARK: Properties
     
+    @IBOutlet weak var locationTextField: LoginTextField!
+    @IBOutlet weak var mediaURLTextField: LoginTextField!
     // MARK: Life Cycle
     
     // MARK: Methods
+    
+    @IBAction func FindLocation(_ sender: Any) {
+        let postLocationMapVC = storyboard?.instantiateViewController(withIdentifier: "SeeInMap") as! PostLocationMapViewController
+        navigationController?.pushViewController(postLocationMapVC, animated: true)
+    }
+    
 }

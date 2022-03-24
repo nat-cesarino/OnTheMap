@@ -6,15 +6,17 @@
 //
 
 import Foundation
+import UIKit
+import MapKit
 
 class UdacityClient {
     
     struct Auth {
         static var sessionId = ""
-        static var key = ""
+        static var uniqueKey = "4321"
         static var objectId = ""
-        static var firstName = "Nathalie"
-        static var lastName = "Cesarino"
+        static var firstName = "Darth"
+        static var lastName = "Vader"
     }
         
     enum Endpoints {
@@ -23,6 +25,7 @@ class UdacityClient {
         case udacitySignUp
         case login
         case getStudentLocation
+        case postLocation
         
         var stringValue: String {
             switch self {
@@ -32,6 +35,8 @@ class UdacityClient {
                 return Endpoints.base + "/session"
             case .getStudentLocation:
                 return Endpoints.base + "/StudentLocation?limit=100&order=-updatedAt"
+            case .postLocation:
+                return Endpoints.base + "/StudentLocation"
             }
         }
         
@@ -73,4 +78,16 @@ class UdacityClient {
         }
     }
     
+    class func postLocation(studentLocation: MKAnnotation, mediaURL: String, completion: @escaping (Bool, Error?) -> Void) {
+        let body = StudentLocationBody(uniqueKey: Auth.uniqueKey, firstName: Auth.firstName, lastName: Auth.lastName, latitude: Float(studentLocation.coordinate.latitude), longitude: Float(studentLocation.coordinate.longitude), mapString: ((studentLocation.title) ?? "")!, mediaURL: mediaURL)
+        RequestHelpers.taskForPostRequest(url: Endpoints.postLocation.url, responseType: PostLocationResponse.self, body: body) { response, error in
+            if let response = response {
+                Auth.objectId = response.objectId
+                completion(true, nil)
+            } else {
+                print(error)
+                completion(false, error)
+            }
+        }
+    }
 }
