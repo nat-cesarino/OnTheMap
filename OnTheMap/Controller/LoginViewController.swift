@@ -35,8 +35,8 @@ class LoginViewController: UIViewController {
     func handleLoginRequest(success: Bool, error: Error?) {
         if success {
             setLoggingIn(false)
-            print(UdacityClient.Auth.sessionId)
-            print("Login successful!")
+            debugPrint(UdacityClient.Auth.sessionId)
+            debugPrint("Login successful!")
             self.performSegue(withIdentifier: "loginSegue", sender: nil)
         } else {
             showLoginFailure(message: error?.localizedDescription ?? "")

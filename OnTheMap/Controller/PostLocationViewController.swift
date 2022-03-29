@@ -1,5 +1,5 @@
 //
-//  InformationPostingView.swift
+//  PostLocationViewController.swift
 //  OnTheMap
 //
 //  Created by Nathalie Cesarino on 07/03/22.
@@ -22,6 +22,7 @@ class PostLocationViewController: UIViewController, CLLocationManagerDelegate {
     let reuseId = "LocationCellId"
     var searchBar: UISearchBar?
     var selectedLocation: MKMapItem? = nil
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     // MARK: Life Cycle
     
@@ -105,9 +106,11 @@ extension PostLocationViewController: UISearchResultsUpdating {
         let request = MKLocalSearch.Request()
         request.naturalLanguageQuery = searchBarText
         let search = MKLocalSearch(request: request)
+        activityIndicator.startAnimating()
         search.start { response, error in
             guard let response = response else {
-                print(error!)
+                debugPrint(error!)
+                self.activityIndicator.stopAnimating()
                 return
             }
             self.matchingItems = response.mapItems

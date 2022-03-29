@@ -20,8 +20,8 @@
 		2E3E29B927E284BD00206DBB /* PostLocationMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E3E29B827E284BD00206DBB /* PostLocationMapViewController.swift */; };
 		2E3E29BB27EC87C700206DBB /* PostLocationResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E3E29BA27EC87C700206DBB /* PostLocationResponse.swift */; };
 		2E5E0CEA27D6DE1F003F433B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2E5E0CE927D6DE1F003F433B /* Assets.xcassets */; };
+		2E7DB9CF27F3B49C005924BD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E7DB9CE27F3B49C005924BD /* SceneDelegate.swift */; };
 		2E81A42927D6D3F400A30833 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E81A42827D6D3F400A30833 /* AppDelegate.swift */; };
-		2E81A42B27D6D3F400A30833 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E81A42A27D6D3F400A30833 /* SceneDelegate.swift */; };
 		2E81A42D27D6D3F400A30833 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E81A42C27D6D3F400A30833 /* LoginViewController.swift */; };
 		2E81A43027D6D3F400A30833 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2E81A42E27D6D3F400A30833 /* Main.storyboard */; };
 		2E81A43527D6D3F500A30833 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2E81A43327D6D3F500A30833 /* LaunchScreen.storyboard */; };
@@ -62,9 +62,9 @@
 		2E3E29B827E284BD00206DBB /* PostLocationMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostLocationMapViewController.swift; sourceTree = "<group>"; };
 		2E3E29BA27EC87C700206DBB /* PostLocationResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostLocationResponse.swift; sourceTree = "<group>"; };
 		2E5E0CE927D6DE1F003F433B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = "New Group/Assets.xcassets"; sourceTree = "<group>"; };
+		2E7DB9CE27F3B49C005924BD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		2E81A42527D6D3F400A30833 /* OnTheMap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OnTheMap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2E81A42827D6D3F400A30833 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		2E81A42A27D6D3F400A30833 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		2E81A42C27D6D3F400A30833 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		2E81A42F27D6D3F400A30833 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		2E81A43427D6D3F500A30833 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -129,6 +129,7 @@
 				2E81A45927D6D44600A30833 /* View */,
 				2E81A45A27D6D44C00A30833 /* Controller */,
 				2E81A45B27D6D45200A30833 /* Assets */,
+				2E7DB9CE27F3B49C005924BD /* SceneDelegate.swift */,
 			);
 			path = OnTheMap;
 			sourceTree = "<group>";
@@ -172,7 +173,6 @@
 			isa = PBXGroup;
 			children = (
 				2E5E0CE927D6DE1F003F433B /* Assets.xcassets */,
-				2E81A42A27D6D3F400A30833 /* SceneDelegate.swift */,
 			);
 			path = Assets;
 			sourceTree = "<group>";
@@ -360,7 +360,7 @@
 				2E3E29AF27E02DF500206DBB /* TableTabViewController.swift in Sources */,
 				2E3E29AB27DFB34600206DBB /* SessionResponse.swift in Sources */,
 				2E81A42927D6D3F400A30833 /* AppDelegate.swift in Sources */,
-				2E81A42B27D6D3F400A30833 /* SceneDelegate.swift in Sources */,
+				2E7DB9CF27F3B49C005924BD /* SceneDelegate.swift in Sources */,
 				2E1F038727DFA1F4004EB534 /* LoginRequest.swift in Sources */,
 				2E3E29B527E2744600206DBB /* AllStudentsLocationResponse.swift in Sources */,
 			);

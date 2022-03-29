@@ -13,10 +13,10 @@ class UdacityClient {
     
     struct Auth {
         static var sessionId = ""
-        static var uniqueKey = "4321"
+        static var uniqueKey = ""
         static var objectId = ""
-        static var firstName = "Darth"
-        static var lastName = "Vader"
+        static var firstName = ""
+        static var lastName = ""
     }
         
     enum Endpoints {
