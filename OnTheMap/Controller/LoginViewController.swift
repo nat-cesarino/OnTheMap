@@ -8,17 +8,16 @@
 import UIKit
 
 class LoginViewController: UIViewController {
-
-    @IBOutlet weak var emailTextLabel: UITextField!
-    @IBOutlet weak var passwordTextLabel: UITextField!
+    
+    // MARK: Properties
+    @IBOutlet weak var emailTextLabel: TextField!
+    @IBOutlet weak var passwordTextLabel: TextField!
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
+    // MARK: Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        emailTextLabel.text = ""
-        passwordTextLabel.text = ""
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -27,6 +26,7 @@ class LoginViewController: UIViewController {
         passwordTextLabel.text = ""
     }
     
+    // MARK: Methods
     @IBAction func loginButtonTapped(_ sender: Any) {
         setLoggingIn(true)
         UdacityClient.login(username: emailTextLabel.text ?? "", password: passwordTextLabel.text ?? "", completion: handleLoginRequest(success:error:))
@@ -60,5 +60,10 @@ class LoginViewController: UIViewController {
         passwordTextLabel.isEnabled = !loggingIn
         loginButton.isEnabled = !loggingIn
     }
+    
+    @IBAction func signUpButton(_ sender: Any) {
+        UIApplication.shared.open(URL(string: "https://auth.udacity.com/sign-up?next=https://classroom.udacity.com")!)
+    }
+    
 }
 

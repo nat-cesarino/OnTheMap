@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2E1F037F27DF8A3E004EB534 /* LoginButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E1F037E27DF8A3E004EB534 /* LoginButton.swift */; };
-		2E1F038127DF8A51004EB534 /* LoginTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E1F038027DF8A51004EB534 /* LoginTextField.swift */; };
+		2E1F037F27DF8A3E004EB534 /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E1F037E27DF8A3E004EB534 /* Button.swift */; };
+		2E1F038127DF8A51004EB534 /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E1F038027DF8A51004EB534 /* TextField.swift */; };
 		2E1F038327DF9AF5004EB534 /* RequestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E1F038227DF9AF5004EB534 /* RequestHelpers.swift */; };
 		2E1F038527DF9C9E004EB534 /* ErrorResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E1F038427DF9C9E004EB534 /* ErrorResponse.swift */; };
 		2E1F038727DFA1F4004EB534 /* LoginRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E1F038627DFA1F4004EB534 /* LoginRequest.swift */; };
@@ -48,8 +48,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		2E1F037E27DF8A3E004EB534 /* LoginButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginButton.swift; sourceTree = "<group>"; };
-		2E1F038027DF8A51004EB534 /* LoginTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginTextField.swift; sourceTree = "<group>"; };
+		2E1F037E27DF8A3E004EB534 /* Button.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
+		2E1F038027DF8A51004EB534 /* TextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
 		2E1F038227DF9AF5004EB534 /* RequestHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestHelpers.swift; sourceTree = "<group>"; };
 		2E1F038427DF9C9E004EB534 /* ErrorResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorResponse.swift; sourceTree = "<group>"; };
 		2E1F038627DFA1F4004EB534 /* LoginRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRequest.swift; sourceTree = "<group>"; };
@@ -147,8 +147,8 @@
 			children = (
 				2E81A42E27D6D3F400A30833 /* Main.storyboard */,
 				2E81A43327D6D3F500A30833 /* LaunchScreen.storyboard */,
-				2E1F037E27DF8A3E004EB534 /* LoginButton.swift */,
-				2E1F038027DF8A51004EB534 /* LoginTextField.swift */,
+				2E1F037E27DF8A3E004EB534 /* Button.swift */,
+				2E1F038027DF8A51004EB534 /* TextField.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -341,9 +341,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2E1F038127DF8A51004EB534 /* LoginTextField.swift in Sources */,
+				2E1F038127DF8A51004EB534 /* TextField.swift in Sources */,
 				2E81A46127D6D56200A30833 /* UdacityClient.swift in Sources */,
-				2E1F037F27DF8A3E004EB534 /* LoginButton.swift in Sources */,
+				2E1F037F27DF8A3E004EB534 /* Button.swift in Sources */,
 				2E3E29B127E2389300206DBB /* StudentLocation.swift in Sources */,
 				2E1F038327DF9AF5004EB534 /* RequestHelpers.swift in Sources */,
 				2E3E29B927E284BD00206DBB /* PostLocationMapViewController.swift in Sources */,

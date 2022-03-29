@@ -22,21 +22,21 @@ class UdacityClient {
     enum Endpoints {
          static let base = "https://onthemap-api.udacity.com/v1"
         
-        case udacitySignUp
         case login
         case getStudentLocation
         case postLocation
+        case logout
         
         var stringValue: String {
             switch self {
-            case .udacitySignUp:
-                return "https://auth.udacity.com/sign-up"
             case .login:
                 return Endpoints.base + "/session"
             case .getStudentLocation:
                 return Endpoints.base + "/StudentLocation?limit=100&order=-updatedAt"
             case .postLocation:
                 return Endpoints.base + "/StudentLocation"
+            case .logout:
+                return Endpoints.base + "/session"
             }
         }
         
@@ -89,5 +89,26 @@ class UdacityClient {
                 completion(false, error)
             }
         }
+    }
+    
+    class func logout(completion: @escaping () -> Void) {
+        var request = URLRequest(url: Endpoints.logout.url)
+        request.httpMethod = "DELETE"
+        var xsrfCookie: HTTPCookie? = nil
+        let sharedCookieStorage = HTTPCookieStorage.shared
+        for cookie in sharedCookieStorage.cookies! {
+            if cookie.name == "XSRF-TOKEN" {xsrfCookie = cookie}
+        }
+        if let xsrfCookie = xsrfCookie {
+            request.setValue(xsrfCookie.value, forHTTPHeaderField: "X-XSRF-TOKEN")
+        }
+        let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
+            Auth.sessionId = ""
+            Auth.objectId = ""
+            DispatchQueue.main.async {
+                completion()
+            }
+        }
+        task.resume()
     }
 }

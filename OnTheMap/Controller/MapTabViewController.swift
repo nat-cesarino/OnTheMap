@@ -34,6 +34,18 @@ class MapTabViewController: UIViewController {
         let refreshButton = UIBarButtonItem(barButtonSystemItem: .refresh, target: self, action: #selector(getStudentsLocationList))
         let addPinButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addNewLocation))
         self.navigationItem.rightBarButtonItems = [addPinButton, refreshButton]
+        // Logout Button
+        let logoutButton = UIBarButtonItem()
+        logoutButton.title = "LOGOUT"
+        logoutButton.target = self
+        logoutButton.action = #selector(logout)
+        self.navigationItem.leftBarButtonItem = logoutButton
+    }
+    
+    @objc func logout() {
+        UdacityClient.logout {
+            self.dismiss(animated: true, completion: nil)
+        }
     }
     
     @objc func getStudentsLocationList() {
@@ -43,7 +55,7 @@ class MapTabViewController: UIViewController {
     func handleStudentsLocationListResponse(studentsLocationList: [StudentLocation], error: Error?) {
         if let error = error {
             print(error)
-            // Show failure func
+            showFailure(message: "Unable to load locations. Try again.")
         } else {
             StudentLocationModel.updateStudentsLocationList(updatedList: studentsLocationList)
             mapView.addAnnotations(StudentLocationModel.studentsLocationAnnotations)
@@ -55,6 +67,12 @@ class MapTabViewController: UIViewController {
         present(postLocationVC, animated: true, completion: nil)
     }
     
+    // Handling failures
+    func showFailure(message: String) {
+        let alertVC = UIAlertController(title: "Alert", message: message, preferredStyle: .alert)
+        alertVC.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        present(alertVC, animated: true, completion: nil)
+    }
 }
 
 extension MapTabViewController: MKMapViewDelegate {
