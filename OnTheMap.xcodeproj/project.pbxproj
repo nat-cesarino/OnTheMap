@@ -28,6 +28,7 @@
 		2E81A46127D6D56200A30833 /* UdacityClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E81A46027D6D56200A30833 /* UdacityClient.swift */; };
 		2E81A46527D6D8F800A30833 /* MapTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E81A46427D6D8F800A30833 /* MapTabViewController.swift */; };
 		2E81A46727D6D94300A30833 /* PostLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E81A46627D6D94300A30833 /* PostLocationViewController.swift */; };
+		2EDC6FA027F373F700499C68 /* TableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EDC6F9F27F373F700499C68 /* TableCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +74,7 @@
 		2E81A46027D6D56200A30833 /* UdacityClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UdacityClient.swift; sourceTree = "<group>"; };
 		2E81A46427D6D8F800A30833 /* MapTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapTabViewController.swift; sourceTree = "<group>"; };
 		2E81A46627D6D94300A30833 /* PostLocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostLocationViewController.swift; sourceTree = "<group>"; };
+		2EDC6F9F27F373F700499C68 /* TableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -159,6 +161,7 @@
 				2E81A42C27D6D3F400A30833 /* LoginViewController.swift */,
 				2E81A46427D6D8F800A30833 /* MapTabViewController.swift */,
 				2E3E29AE27E02DF500206DBB /* TableTabViewController.swift */,
+				2EDC6F9F27F373F700499C68 /* TableCell.swift */,
 				2E81A46627D6D94300A30833 /* PostLocationViewController.swift */,
 				2E3E29B827E284BD00206DBB /* PostLocationMapViewController.swift */,
 			);
@@ -342,6 +345,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2E1F038127DF8A51004EB534 /* TextField.swift in Sources */,
+				2EDC6FA027F373F700499C68 /* TableCell.swift in Sources */,
 				2E81A46127D6D56200A30833 /* UdacityClient.swift in Sources */,
 				2E1F037F27DF8A3E004EB534 /* Button.swift in Sources */,
 				2E3E29B127E2389300206DBB /* StudentLocation.swift in Sources */,

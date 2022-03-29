@@ -82,10 +82,10 @@ class TableTabViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: cellReuse, for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellReuse, for: indexPath) as! TableCell
         let studentLocation = studentsLocationList[indexPath.row]
-        cell.textLabel?.text = "\(studentLocation.firstName) \(studentLocation.lastName)"
-        cell.detailTextLabel?.text = "\(studentLocation.mediaURL)"
+        cell.title.text = "\(studentLocation.firstName) \(studentLocation.lastName)"
+        cell.subtitle.text = "\(studentLocation.mediaURL)"
         cell.imageView?.image = UIImage(named: "icon_pin")
         
         return cell
