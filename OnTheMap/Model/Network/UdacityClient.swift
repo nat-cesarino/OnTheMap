@@ -26,6 +26,7 @@ class UdacityClient {
         case getStudentLocation
         case postLocation
         case logout
+        case getPublicData
         
         var stringValue: String {
             switch self {
@@ -37,6 +38,8 @@ class UdacityClient {
                 return Endpoints.base + "/StudentLocation"
             case .logout:
                 return Endpoints.base + "/session"
+            case .getPublicData:
+                return Endpoints.base + "/users" + "/\(Auth.objectId)"
             }
         }
         
@@ -73,6 +76,24 @@ class UdacityClient {
             } else {
                 DispatchQueue.main.async {
                     completion([], error)
+                }
+            }
+        }
+    }
+    
+    class func getPublicData(completionHandler: @escaping (String?, String?, Error?) -> Void){
+        RequestHelpers.taskForGetRequest(url: Endpoints.getPublicData.url, responseT: PublicUserDataResponse.self) { response, error in
+            if let response = response {
+                Auth.firstName = response.firstName
+                Auth.lastName = response.lastName
+                Auth.uniqueKey = response.key
+                DispatchQueue.main.async {
+                    completionHandler(response.firstName,response.lastName, nil)
+                }
+                print(response)
+            } else {
+                DispatchQueue.main.async {
+                    completionHandler(nil, nil, error)
                 }
             }
         }

@@ -21,6 +21,7 @@
 		2E3E29BB27EC87C700206DBB /* PostLocationResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E3E29BA27EC87C700206DBB /* PostLocationResponse.swift */; };
 		2E5E0CEA27D6DE1F003F433B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2E5E0CE927D6DE1F003F433B /* Assets.xcassets */; };
 		2E7DB9CF27F3B49C005924BD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E7DB9CE27F3B49C005924BD /* SceneDelegate.swift */; };
+		2E7DB9D127F3BD44005924BD /* PublicUserDataResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E7DB9D027F3BD44005924BD /* PublicUserDataResponse.swift */; };
 		2E81A42927D6D3F400A30833 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E81A42827D6D3F400A30833 /* AppDelegate.swift */; };
 		2E81A42D27D6D3F400A30833 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E81A42C27D6D3F400A30833 /* LoginViewController.swift */; };
 		2E81A43027D6D3F400A30833 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2E81A42E27D6D3F400A30833 /* Main.storyboard */; };
@@ -63,6 +64,7 @@
 		2E3E29BA27EC87C700206DBB /* PostLocationResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostLocationResponse.swift; sourceTree = "<group>"; };
 		2E5E0CE927D6DE1F003F433B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = "New Group/Assets.xcassets"; sourceTree = "<group>"; };
 		2E7DB9CE27F3B49C005924BD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		2E7DB9D027F3BD44005924BD /* PublicUserDataResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublicUserDataResponse.swift; sourceTree = "<group>"; };
 		2E81A42527D6D3F400A30833 /* OnTheMap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OnTheMap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2E81A42827D6D3F400A30833 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2E81A42C27D6D3F400A30833 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -193,6 +195,7 @@
 				2E3E29AA27DFB34600206DBB /* SessionResponse.swift */,
 				2E3E29B427E2744600206DBB /* AllStudentsLocationResponse.swift */,
 				2E3E29BA27EC87C700206DBB /* PostLocationResponse.swift */,
+				2E7DB9D027F3BD44005924BD /* PublicUserDataResponse.swift */,
 			);
 			path = Response;
 			sourceTree = "<group>";
@@ -354,6 +357,7 @@
 				2E81A46527D6D8F800A30833 /* MapTabViewController.swift in Sources */,
 				2E3E29B727E2769A00206DBB /* StudentLocationModel.swift in Sources */,
 				2E1F038527DF9C9E004EB534 /* ErrorResponse.swift in Sources */,
+				2E7DB9D127F3BD44005924BD /* PublicUserDataResponse.swift in Sources */,
 				2E81A42D27D6D3F400A30833 /* LoginViewController.swift in Sources */,
 				2E81A46727D6D94300A30833 /* PostLocationViewController.swift in Sources */,
 				2E3E29BB27EC87C700206DBB /* PostLocationResponse.swift in Sources */,
