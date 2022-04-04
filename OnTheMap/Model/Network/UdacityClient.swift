@@ -26,7 +26,7 @@ class UdacityClient {
         case getStudentLocation
         case postLocation
         case logout
-        case getPublicData
+        case getUserProfile
         
         var stringValue: String {
             switch self {
@@ -38,7 +38,7 @@ class UdacityClient {
                 return Endpoints.base + "/StudentLocation"
             case .logout:
                 return Endpoints.base + "/session"
-            case .getPublicData:
+            case .getUserProfile:
                 return Endpoints.base + "/users" + "/\(Auth.objectId)"
             }
         }
@@ -56,6 +56,11 @@ class UdacityClient {
             if let response = response {
                 Auth.sessionId = response.session.id
                 Auth.objectId = response.account.key
+                getUserProfile(completion: { (success, error) in
+                    if success {
+                        print("Fetched user's profile")
+                    }
+                })
                 DispatchQueue.main.async {
                     completion(true, nil)
                 }
@@ -81,19 +86,19 @@ class UdacityClient {
         }
     }
     
-    class func getPublicData(completionHandler: @escaping (String?, String?, Error?) -> Void){
-        RequestHelpers.taskForGetRequest(url: Endpoints.getPublicData.url, responseT: PublicUserDataResponse.self) { response, error in
+    class func getUserProfile(completion: @escaping (Bool, Error?) -> Void) {
+        RequestHelpers.taskForGetRequest(url: Endpoints.getUserProfile.url, responseT: UserProfile.self) { (response, error) in
             if let response = response {
                 Auth.firstName = response.firstName
                 Auth.lastName = response.lastName
                 Auth.uniqueKey = response.key
                 DispatchQueue.main.async {
-                    completionHandler(response.firstName,response.lastName, nil)
+                    completion(true, nil)
                 }
                 print(response)
             } else {
                 DispatchQueue.main.async {
-                    completionHandler(nil, nil, error)
+                    completion(false, error)
                 }
             }
         }
