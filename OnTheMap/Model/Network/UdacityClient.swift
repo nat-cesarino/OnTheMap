@@ -73,7 +73,7 @@ class UdacityClient {
     }
     
     class func getStudentLocation(completion: @escaping ([StudentLocation], Error?) -> Void) {
-        RequestHelpers.taskForGetRequest(url: Endpoints.getStudentLocation.url, responseT: AllStudentsLocationResponse.self) { response, error in
+        RequestHelpers.taskForGetRequest(url: Endpoints.getStudentLocation.url, responseT: AllStudentsLocationResponse.self, typeOfMethod: "") { response, error in
             if let response =  response {
                 DispatchQueue.main.async {
                     completion(response.results, nil)
@@ -87,7 +87,7 @@ class UdacityClient {
     }
     
     class func getUserProfile(completion: @escaping (Bool, Error?) -> Void) {
-        RequestHelpers.taskForGetRequest(url: Endpoints.getUserProfile.url, responseT: UserProfile.self) { (response, error) in
+        RequestHelpers.taskForGetRequest(url: Endpoints.getUserProfile.url, responseT: UserProfile.self, typeOfMethod: "getProfile") { (response, error) in
             if let response = response {
                 Auth.firstName = response.firstName
                 Auth.lastName = response.lastName

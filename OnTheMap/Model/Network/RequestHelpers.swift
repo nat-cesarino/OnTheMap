@@ -9,7 +9,7 @@ import Foundation
 
 class RequestHelpers {
     
-    class func taskForGetRequest<ResponseType: Decodable>(url:URL, responseT: ResponseType.Type, completion: @escaping (ResponseType?, Error?) -> Void) -> URLSessionTask {
+    class func taskForGetRequest<ResponseType: Decodable>(url:URL, responseT: ResponseType.Type, typeOfMethod: String , completion: @escaping (ResponseType?, Error?) -> Void) -> URLSessionTask {
         
         let task = URLSession.shared.dataTask(with: url) { data, response, error in
             guard let data = data else {
@@ -18,15 +18,22 @@ class RequestHelpers {
                 }
                 return
             }
+            var newData: Data
+            if typeOfMethod == "getProfile" {
+                let range = (5..<data.count)
+                newData = data.subdata(in: range)
+            } else {
+                newData = data
+            }
             let decoder = JSONDecoder()
             do {
-                let responseObject = try decoder.decode(responseT.self, from: data)
+                let responseObject = try decoder.decode(responseT.self, from: newData)
                 DispatchQueue.main.async {
                     completion(responseObject, nil)
                 }
             } catch {
                 do {
-                    let errorResponse = try decoder.decode(ErrorResponse.self, from: data) as Error
+                    let errorResponse = try decoder.decode(ErrorResponse.self, from: newData) as Error
                     DispatchQueue.main.async {
                         completion(nil, errorResponse)
                     }
