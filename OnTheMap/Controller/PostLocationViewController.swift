@@ -34,7 +34,7 @@ class PostLocationViewController: UIViewController, CLLocationManagerDelegate {
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.requestWhenInUseAuthorization()
         resultSearchController!.searchResultsUpdater = self
-        self.searchBar = resultSearchController!.searchBar
+        searchBar = resultSearchController!.searchBar
         searchBar!.sizeToFit()
         searchBar!.placeholder = "Search Address"
         navBarSearch.titleView = resultSearchController?.searchBar
